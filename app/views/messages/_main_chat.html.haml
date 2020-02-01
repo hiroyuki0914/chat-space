@@ -1,0 +1,39 @@
+!!!
+%html{lang: "ja"}
+  %head
+    %meta{charset: "utf-8"}
+  %body
+
+.chat-main
+  .chat-main__message-list
+    .message-top
+      .message-name
+        hiro
+      .message-time
+        2020/1/29(Wed) 14:30:01
+    .message-text
+      おはよう
+    .message-top
+      .message-name
+        hiro
+      .message-time
+        2020/1/29(Wed) 14:30:01
+    .message-text
+      おはよう
+  .chat-main__group-info
+    .info-top
+      .info-name test
+      .info-member member：hiro
+    = link_to "#", class: "edit__btn" do
+      Edit
+
+  .chat-main__message-form
+    .new-message-form
+      .info-box
+        .form-message
+          type a message
+        %label{class: "picture__btn"}
+          = icon('fas', 'image')
+          %input{type: "file", class: "picture__btn__file"}
+      = link_to "#", class: "send__btn" do
+        Send
