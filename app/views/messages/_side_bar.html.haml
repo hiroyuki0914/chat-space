@@ -16,10 +16,11 @@
       まだメッセージはありません
   .side-bar__user-name
     .top-items
-      .top-items__name hiro
+      .top-items__name
+        = current_user.name
       .top-items__icons
         .contents-btn
           = link_to "#", class: "contents__btn" do
             %i.fa.fa-edit
-          = link_to "#", class: "cintents__btn" do
+          = link_to edit_user_path(current_user), class: "contents__btn" do
             %i.fa.fa-cog
