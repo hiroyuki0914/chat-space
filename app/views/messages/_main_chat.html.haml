@@ -6,34 +6,25 @@
 
 .chat-main
   .chat-main__message-list
-    .message-top
-      .message-name
-        hiro
-      .message-time
-        2020/1/29(Wed) 14:30:01
-    .message-text
-      おはよう
-    .message-top
-      .message-name
-        hiro
-      .message-time
-        2020/1/29(Wed) 14:30:01
-    .message-text
-      おはよう
+    .messages
+      = render @messages
   .chat-main__group-info
     .info-top
-      .info-name test
-      .info-member member：hiro
-    = link_to "#", class: "edit__btn" do
+      .info-name
+        = @group.name
+      .info-member
+        member : 
+        - @group.users.each do |user| 
+          = user.name 
+    = link_to edit_group_path(@group), class: "edit__btn" do
       Edit
-
-  .chat-main__message-form
-    .new-message-form
-      .info-box
-        .form-message
-          type a message
-        %label{class: "picture__btn"}
-          = icon('fas', 'image')
-          %input{type: "file", class: "picture__btn__file"}
-      = link_to "#", class: "send__btn" do
-        Send
+  = form_for [@group, @message] do |f|
+    .chat-main__message-form
+      .new-message-form
+        .info-box
+          .form-message
+            = f.text_field :content, class: 'content-box', placeholder: 'type a message'
+            = f.label :image, class: 'picture__btn' do
+              = icon('fas', 'image', class: 'picture__btn')
+              = f.file_field :image, class: 'picture__btn__file'
+          = f.submit 'Send', class: 'send__btn'

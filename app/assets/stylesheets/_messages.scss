@@ -38,41 +38,44 @@
     background-color: #d2d2d2;
     height: 90px;
     display: flex;
-    position: relative;
+
     .new-message-form {
       width: 100%;
       height: 50px;
-      display: flex;
       margin: auto;
       padding: 0 40px;
       .info-box {
-        background-color: #ffffff;
-        width: 100%;
-        line-height: 50px;
         display: flex;
-        justify-content: space-between;
         .form-message {
-          color: #434a54;
-          padding: 0 0 0 10px;
-        }
-        .picture__btn {
-          font-size: 22px;
-          padding: 0 10px 0 0 ;
+          width: 100%;
+          position: relative;
+          .content-box{
+            height: 50px;
+            width: 100%;
+            padding: 0 40px 0 10px;
+          }
+          .picture__btn {
+            font-size: 22px;
+            position: absolute;
+            top: 7px;
+            right: 10px;
             &__file {
               display: none;
             }
           }
         }
       }
-      .send__btn {
+    }
+    .send__btn {
         background-color: #38aef0;
         color: white;
         padding: 0 30px;
         margin-left: 15px;
         line-height: 50px;
-        text-decoration: none;
-      }
     }
+  }
+
+
   &__group-info{
     border-bottom: solid 1px #eeeeee;
     background-color: #ffffff;

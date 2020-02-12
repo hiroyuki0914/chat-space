@@ -6,14 +6,13 @@
 
 .side-bar
   .side-bar__group-list
-    .group-name
-      techcamp
-    .group-message
-      まだメッセージはありません
-    .group-name
-      techcamp
-    .group-message
-      まだメッセージはありません
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group) do
+          .group-name
+            = group.name
+          .group-message
+            = group.show_last_message
   .side-bar__user-name
     .top-items
       .top-items__name
